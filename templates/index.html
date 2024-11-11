@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommerce Sales Prediction </title>
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    
+    <div class="container mt-5">
+        <div class="card mx-auto" style="max-width: 600px;">
+            <div class="card-header bg-primary text-white text-center">
+                <h3>Customer Sales Prediction</h3>
+            </div>
+            <div class="card-body">
+                <form action="/predict" method="POST">
+                    <div class="mb-3">
+                        <label for="avg_session_length" class="form-label">Average Session Length in mins</label>
+                        <input type="float" name="avg_session_length" id="avg_session_length" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="time_on_app" class="form-label">Time On App in mins</label>
+                        <input type="float" name="time_on_app" id="time_on_app" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="time_on_website" class="form-label">Time On Website in mins </label>
+                        <input type="float" name="time_on_website" id="time_on_website" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="length_of_membership" class="form-label">Length Of Membership in years</label>
+                        <input type="float" name="length_of_membership" id="length_of_membership" required>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-success">Predict</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </body>
+</html>

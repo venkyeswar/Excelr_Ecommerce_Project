@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/result.css') }}">
+</head>
+<body>
+    <div class="container mt-5"> 
+        <div class="card mx-auto" style="max-width: 600px;">
+            <div class="card-header bg-info text-white text-center">
+                <h3>Prediction Result</h3>
+            </div>
+            <div class="card-body">
+                <h2 class="text-center">You entered:</h2>
+                <ul class="list-group mb-3">
+                    <li class="list-group-item">Average Session Length: {{ features[0] }} mins</li>
+                    <li class="list-group-item">Time Spend on App: {{ features[1] }} mins</li>
+                    <li class="list-group-item">Time Spend on website: {{ features[2] }} mins</li>
+                    <li class="list-group-item">Length of Membership: {{ features[3] }} years</li>
+                 </ul>
+                <h4 class="text-center">Prediction: <br> <span> $ {{ prediction[0]}}</span></h4>
+                <div class="text-center">
+                    <a href="/new_prediction" class="btn btn-primary">Make a New Prediction</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
