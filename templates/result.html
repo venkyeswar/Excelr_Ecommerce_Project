@@ -1,32 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prediction Result</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/result.css') }}">
+  <!-- Design by foolishdeveloper.com -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prediction Result</title>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #080710;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .background {
+      position: absolute;
+      width: 430px;
+      height: 520px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+    }
+
+    .background .shape {
+      height: 200px;
+      width: 200px;
+      position: absolute;
+      border-radius: 50%;
+    }
+
+    .shape:first-child {
+      background: linear-gradient(#1845ad, #23a2f6);
+      left: -80px;
+      top: -80px;
+    }
+
+    .shape:last-child {
+      background: linear-gradient(to right, #ff512f, #f09819);
+      right: -30px;
+      bottom: -80px;
+    }
+
+    .content {
+      width: 400px;
+      background-color: rgba(255, 255, 255, 0.13);
+      padding: 50px 35px;
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+      text-align: center;
+    }
+
+    h3 {
+      font-size: 32px;
+      font-weight: 500;
+      margin-bottom: 25px;
+      color: #ffffff;
+    }
+
+    .list-group {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      margin-bottom: 30px;
+    }
+
+    .list-group-item {
+      background-color: transparent;
+      color: #e5e5e5;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 12px;
+      margin-bottom: 10px;
+    }
+
+    .prediction-result {
+      font-size: 32px;
+      color: #ff512f;
+      font-weight: 700;
+      margin-bottom: 30px;
+    }
+
+    .btn-primary {
+      padding: 12px 24px;
+      background-color: #ff512f;
+      color: white;
+      font-weight: 600;
+      font-size: 16px;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: #f09819;
+    }
+  </style>
 </head>
+
 <body>
-    <div class="container mt-5"> 
-        <div class="card mx-auto" style="max-width: 600px;">
-            <div class="card-header bg-info text-white text-center">
-                <h3>Prediction Result</h3>
-            </div>
-            <div class="card-body">
-                <h2 class="text-center">You entered:</h2>
-                <ul class="list-group mb-3">
-                    <li class="list-group-item">Average Session Length: {{ features[0] }} mins</li>
-                    <li class="list-group-item">Time Spend on App: {{ features[1] }} mins</li>
-                    <li class="list-group-item">Time Spend on website: {{ features[2] }} mins</li>
-                    <li class="list-group-item">Length of Membership: {{ features[3] }} years</li>
-                 </ul>
-                <h4 class="text-center">Prediction: <br> <span> $ {{ prediction[0]}}</span></h4>
-                <div class="text-center">
-                    <a href="/new_prediction" class="btn btn-primary">Make a New Prediction</a>
-                </div>
-            </div>
-        </div>
-    </div>
+
+  <div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+
+  <div class="content">
+    <h3>Entered Details</h3>
+
+    <ul class="list-group">
+      <li class="list-group-item">Average Session Length: {{ features[0] }} mins</li>
+      <li class="list-group-item">Time Spent on App: {{ features[1] }} mins</li>
+      <li class="list-group-item">Time Spent on Website: {{ features[2] }} mins</li>
+      <li class="list-group-item">Length of Membership: {{ features[3] }} years</li>
+    </ul>
+
+    <h2 class="prediction-result">Prediction: <br> <span>${{ prediction[0] }}</span></h2>
+
+    <a href="/new_prediction" class="btn-primary">Make a New Prediction</a>
+  </div>
 
 </body>
 </html>

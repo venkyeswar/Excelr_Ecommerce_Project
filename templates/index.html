@@ -1,42 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ecommerce Sales Prediction </title>
-   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <!-- Design by foolishdeveloper.com -->
+    <title>Glassmorphism login Form Tutorial in html css</title>
+ 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <!--Stylesheet-->
+    <style media="screen">
+      *,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #080710;
+}
+.background{
+    width: 430px;
+    height: 520px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+}
+.background .shape{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    border-radius: 50%;
+}
+.shape:first-child{
+    background: linear-gradient(
+        #1845ad,
+        #23a2f6
+    );
+    left: -80px;
+    top: -80px;
+}
+.shape:last-child{
+    background: linear-gradient(
+        to right,
+        #ff512f,
+        #f09819
+    );
+    right: -30px;
+    bottom: -80px;
+}
+form{
+    height: 600px;
+    width: 400px;
+    background-color: rgba(255,255,255,0.13);
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 50px 35px;
+}
+form *{
+    font-family: 'Poppins',sans-serif;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+form h3{
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+}
+
+label{
+    display: block;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: 500;
+}
+input{
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255,255,255,0.07);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+}
+::placeholder{
+    color: #e5e5e5;
+}
+button{
+    margin-top: 25px;
+    width: 100%;
+    background-color: #ffffff;
+    color: #080710;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+    </style>
 </head>
 <body>
-    
-    <div class="container mt-5">
-        <div class="card mx-auto" style="max-width: 600px;">
-            <div class="card-header bg-primary text-white text-center">
-                <h3>Customer Sales Prediction</h3>
-            </div>
-            <div class="card-body">
-                <form action="/predict" method="POST">
-                    <div class="mb-3">
-                        <label for="avg_session_length" class="form-label">Average Session Length in mins</label>
-                        <input type="float" name="avg_session_length" id="avg_session_length" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="time_on_app" class="form-label">Time On App in mins</label>
-                        <input type="float" name="time_on_app" id="time_on_app" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="time_on_website" class="form-label">Time On Website in mins </label>
-                        <input type="float" name="time_on_website" id="time_on_website" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="length_of_membership" class="form-label">Length Of Membership in years</label>
-                        <input type="float" name="length_of_membership" id="length_of_membership" required>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-success">Predict</button>
-                    </div>
-                </form>
-            </div>
-        </div>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
     </div>
-    </body>
+    <form action="/predict" method="POST">
+        <h3>Enter Details</h3>
+
+        <label for="avg_session_length" class="form-label">Average Session Length (mins)</label>
+        <input type="float" name="avg_session_length" id="avg_session_length" placeholder="Avg Session Length" required>
+        
+        <label for="time_on_app" class="form-label">Time On App (mins)</label>
+        <input type="float" name="time_on_app" id="time_on_app" placeholder ="Time on App" required>
+        
+        <label for="time_on_website" class="form-label">Time On Website (mins) </label>
+        <input type="float" name="time_on_website" id="time_on_website" placeholder="Time on Website" required>
+
+        <label for="length_of_membership" class="form-label">Length Of Membership(years)</label>
+        <input type="float" name="length_of_membership" id="length_of_membership" placeholder="Length Of Membership" required>
+
+        <button>Predict</button>
+    </form>
+</body>
 </html>
