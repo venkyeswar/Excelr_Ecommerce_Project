@@ -1,4 +1,4 @@
-from django.db import models
+from  django.db import models
 
 class Image(models.Model):
     image = models.ImageField(upload_to='uploads/')  # Save uploaded images to the 'uploads' folder
